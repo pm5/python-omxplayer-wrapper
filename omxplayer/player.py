@@ -18,7 +18,7 @@ from decorator import decorator
 from dbus import DBusException, Int64, String, ObjectPath
 import dbus.types
 
-from omxplayer.bus_finder import BusFinder
+from omxplayer.bus_finder import EnvBusFinder
 from omxplayer.dbus_connection import DBusConnection, \
                                       DBusConnectionError
 
@@ -122,7 +122,7 @@ class OMXPlayer(object):
         self._source = source
         self._dbus_name = dbus_name
         self._Connection = Connection if Connection else DBusConnection
-        self._bus_address_finder = bus_address_finder if bus_address_finder else BusFinder()
+        self._bus_address_finder = bus_address_finder if bus_address_finder else EnvBusFinder()
 
         #: Event called on pause ``callback(player)``
         self.pauseEvent = Event()

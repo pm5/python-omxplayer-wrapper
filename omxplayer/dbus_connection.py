@@ -20,7 +20,7 @@ class DBusConnection(object):
         if dbus_name:
             self._dbus_name = dbus_name
         else:
-            self._dbus_name = 'org.mpris.MediaPlayer2.omxplayer'
+            self._dbus_name = 'org.mpris.MediaPlayer2.vlc'
         self._bus = dbus.bus.BusConnection(bus_address)
         self.proxy = self._create_proxy()
 

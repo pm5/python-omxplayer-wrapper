@@ -2,9 +2,20 @@ import os.path
 import time
 from glob import glob
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 logger.addHandler(logging.NullHandler())
+
+
+class EnvBusFinder(object):
+
+    def __init__(self, env_var='DBUS_SESSION_BUS_ADDRESS'):
+        self.env_var = env_var
+
+    def get_address(self):
+        if self.env_var in os.environ:
+            return os.environ[self.env_var]
 
 
 class BusFinder(object):
