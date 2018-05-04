@@ -164,6 +164,7 @@ class OMXPlayer(object):
             command += ['--dbus_name', self._dbus_name]
         logger.debug("Opening omxplayer with the command: %s" % command)
         process = subprocess.Popen(command,
+                                   env={'DBUS_SESSION_BUS_ADDRESS': self._bus_address_finder.get_address()},
                                    stdin=devnull,
                                    stdout=devnull,
                                    preexec_fn=os.setsid)
