@@ -8,6 +8,15 @@ logger = logging.getLogger(__name__)
 logger.addHandler(logging.NullHandler())
 
 
+class FixedBusFinder(object):
+
+    def __init__(self, bus_address):
+        self.bus_address = bus_address
+
+    def get_address(self):
+        return self.bus_address
+
+
 class EnvBusFinder(object):
 
     def __init__(self, env_var='DBUS_SESSION_BUS_ADDRESS'):
